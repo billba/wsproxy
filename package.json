@@ -1,0 +1,16 @@
+{
+  "name": "wsproxy",
+  "version": "1.0.0",
+  "description": "proxies HTTP posts to WS connections",
+  "main": "wsproxy.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bill Barnes (billba@microsoft.com)",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^1.8.10",
+    "ws": "^1.1.1"
+  }
+}

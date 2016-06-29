@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Websockets Test</title>
+    </head>
+    <body>
+        App name <input id="appname" type="text"/>
+        <button id="submit" onclick="connect()">Connect</button>
+        <span id="status"></span>
+        <h3>Messages</h3>
+        <div id="messages"></div>
+        <script>
+            function connect() {
+                appname = document.getElementById("appname").value;
+                var messages = document.getElementById("messages");
+                var ws = new WebSocket("ws://localhost:8080/" + appname);
+                ws.onopen = function(event) {
+                    document.getElementById("status").innerHTML = "Connected";
+                }
+                ws.onmessage = function (event) {
+                    messages.innerHTML += "<p>" + event.data + "</p>";
+                }
+            }
+        </script>
+    </body>
+</html>

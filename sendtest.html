@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Send Message to Websocket</title>
+    </head>
+    <body>
+        Port: <input id="port"/>
+        App name: <input id="appname"/>
+        Message: <input id="text" type="text"/>
+        <button id="submit" onclick="send()">Send</button>
+        <script>
+            function send() {
+                var port = document.getElementById("port").value;
+                var appname = document.getElementById("appname").value;
+                var text = document.getElementById("text").value;
+
+                var http = new XMLHttpRequest();
+                http.open("POST", "http://localhost:" + port + "/" + appname, true);
+                http.send(text);
+            }
+        </script>
+    </body>
+</html>
