@@ -13,7 +13,7 @@ Extremely simple HTTP -> WS proxy
 
 ## Use
 
-Any content POSTed to http://host:httpport/appname will be sent to the WebSocket client connected to ws://{host}:{wsport}/{appname}
+Any content POSTed to **http://host:httpport/appname** will be sent to the WebSocket client connected to **ws://{host}:{wsport}/{appname}**
 
 ## Playground
 
