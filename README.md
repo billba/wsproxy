@@ -6,19 +6,23 @@ Supports multiple server apps running against the same proxy - just give each it
 
 ## Run
 
-Clone this repo and then:
+1. Clone this repo to your machine.
+
+2. Install dependencies:
 
     npm install
 
-Now decide on (different) port numbers for theHTTPhttp and WS services. They will be the same for all apps sharing this proxy. If you're running more than one server app, each must have its own unique app name.
+3. Now decide on (different) port numbers for the HTTP and WS services. They will be used by all apps sharing this proxy.
 
-Then (from the repo folder) run: 
+4. If you're running more than one server app, each must have its own unique name.
+
+5. Then (from the repo folder) run the proxy: 
 
     node wsproxy.js {httpport} {wsport}
 
-Connect your WS client to **ws://{host}:{wsport}/{appname}**.
+6. Connect your WS client to **ws://{host}:{wsport}/{appname}**.
 
-Any content POSTed to **http://{host}:{httpport}/{appname}** will be sent to said client.
+7. Any content POSTed to **http://{host}:{httpport}/{appname}** will be sent to said client, like magic!
 
 ## Playground
 
@@ -26,6 +30,8 @@ Two (very) simple web pages are provided to:
 
 * [Post test messages](sendtest.html) to the proxy via HTTP, and
 * [Create a WebSocket client](wstest.html) to see the posted messages
+
+The latter is very useful for testing your server.
 
 Pro tips:
 
