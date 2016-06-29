@@ -10,10 +10,7 @@ interface Apps {
 
 const apps:Apps = {};
 
-wss.on('connection', ws => {
-    const appname = ws.upgradeReq.url;
-    apps[appname] = ws;
-});
+wss.on('connection', ws => apps[ws.upgradeReq.url] = ws);
 
 import http = require('http');
 const server = http.createServer();
@@ -29,7 +26,7 @@ server.on('request', (request:http.IncomingMessage, response:http.ServerResponse
         if (ws)
             ws.send(Buffer.concat(body).toString());
         else
-            console.log(`App "${request.url}"" does not exist`);
+            console.log(`App "${request.url}" does not exist`);
     });
     response.end();
 });
