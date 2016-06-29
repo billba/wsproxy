@@ -4,7 +4,7 @@ WebSocket is a great way for a server app to push a stream of messages to a clie
 
 Supports multiple server apps running against the same proxy - just give each its own unique app name. 
 
-## Run
+## Use
 
 1. Clone this repo to your machine.
 
@@ -18,11 +18,11 @@ Supports multiple server apps running against the same proxy - just give each it
 
 5. Then (from the repo folder) run the proxy: 
 
-    node wsproxy.js {httpport} {wsport}
+    node wsproxy.js {httpPort} {wsPort}
 
-6. Connect your WS client to **ws://{host}:{wsport}/{appname}**.
+6. Connect your WS client to **ws://{host}:{wsPort}/{appname}**.
 
-7. Any content POSTed to **http://{host}:{httpport}/{appname}** will be sent to said client, like magic!
+7. Any content POSTed to **http://{host}:{httpPort}/{appname}** will be sent to said client, like magic!
 
 ## Playground
 

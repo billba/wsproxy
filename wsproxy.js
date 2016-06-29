@@ -1,8 +1,8 @@
 "use strict";
-var httpport = parseInt(process.argv[2]);
-var wsport = parseInt(process.argv[3]);
+var httpPort = parseInt(process.argv[2]);
+var wsPort = parseInt(process.argv[3]);
 var WebSocket = require('ws');
-var wss = new WebSocket.Server({ port: wsport });
+var wss = new WebSocket.Server({ port: wsPort });
 var apps = {};
 wss.on('connection', function (ws) {
     var appname = ws.upgradeReq.url;
@@ -24,4 +24,4 @@ server.on('request', function (request, response) {
     });
     response.end();
 });
-server.listen(httpport);
+server.listen(httpPort);

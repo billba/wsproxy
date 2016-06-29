@@ -1,8 +1,8 @@
-const httpport = parseInt(process.argv[2]);
-const wsport = parseInt(process.argv[3]);
+const httpPort = parseInt(process.argv[2]);
+const wsPort = parseInt(process.argv[3]);
 
 import WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: wsport });
+const wss = new WebSocket.Server({ port: wsPort });
 
 interface Apps {
     [appname: string]: WebSocket;
@@ -34,4 +34,4 @@ server.on('request', (request:http.IncomingMessage, response:http.ServerResponse
     response.end();
 });
 
-server.listen(httpport);
+server.listen(httpPort);
