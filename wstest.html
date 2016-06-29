@@ -4,6 +4,7 @@
         <title>Websockets Test</title>
     </head>
     <body>
+        WS Port: <input id="port"/>
         App name <input id="appname" type="text"/>
         <button id="submit" onclick="connect()">Connect</button>
         <span id="status"></span>
@@ -11,9 +12,10 @@
         <div id="messages"></div>
         <script>
             function connect() {
-                appname = document.getElementById("appname").value;
+                var port = document.getElementById("port").value;
+                var appname = document.getElementById("appname").value;
                 var messages = document.getElementById("messages");
-                var ws = new WebSocket("ws://localhost:8080/" + appname);
+                var ws = new WebSocket("ws://localhost:" + port + "/" + appname);
                 ws.onopen = function(event) {
                     document.getElementById("status").innerHTML = "Connected";
                 }
