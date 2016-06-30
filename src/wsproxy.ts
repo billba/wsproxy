@@ -23,10 +23,15 @@ server.on('request', (request:http.IncomingMessage, response:http.ServerResponse
     .on('data', chunk => body.push(chunk))
     .on('end', () => {
         const ws = apps[request.url];
-        if (ws)
-            ws.send(Buffer.concat(body).toString());
-        else
-            console.log(`App "${request.url}" does not exist`);
+        if (ws) {
+            try {
+                ws.send(Buffer.concat(body).toString());
+            } catch(error) {
+                console.log(`Failed to send message to app "${request.url}". Try (re)starting WebSocket client.`);
+            }
+        } else {
+            console.log(`App "${request.url}" does not exist yet. Try (re)starting WebSocket client.`);
+        }
     });
     response.end();
 });
